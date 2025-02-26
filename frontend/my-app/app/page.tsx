@@ -1,4 +1,3 @@
-import Header from "@/components/header";
 import { InformationProject } from "@/components/information-project";
 import { Card } from "@/components/ui/card";
 
