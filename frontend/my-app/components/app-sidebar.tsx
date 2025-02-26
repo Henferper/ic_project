@@ -1,4 +1,5 @@
-import { AirVent, Calendar, ChartBar,CircleUser,Search, Settings } from "lucide-react"
+import Link from "next/link";
+import { AirVent, ChartColumn, CircleUser, Settings } from "lucide-react";
 
 import {
   Sidebar,
@@ -9,47 +10,47 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 // Menu items.
 const items = [
   {
     title: "Projeto",
-    url: "#",
+    url: "/",
     icon: AirVent,
   },
   {
     title: "Monitoramento",
-    url: "#",
-    icon: ChartBar,
+    url: "/dashboard",
+    icon: ChartColumn,
   },
   {
     title: "Usuários",
-    url: "#",
+    url: "/users",
     icon: CircleUser,
   },
   {
     title: "Configurações",
-    url: "#",
+    url: "/settings",
     icon: Settings,
   },
-]
+];
 
 export function AppSidebar() {
   return (
-    <Sidebar className="absolute top-0">
-      <SidebarContent className="bg-cyan-50">
+    <Sidebar className="fixed top-0 left-0 h-full w-64 z-50 shadow-lg">
+      <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel className="justify-center mb-5">Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url} className="w-10 h-10">
-                      <item.icon />
+                    <Link href={item.url} className="flex items-center space-x-2 p-2">
+                      <item.icon className="w-6 h-6" />
                       <span className="text-gray-950">{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -58,5 +59,5 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }

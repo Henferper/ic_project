@@ -7,7 +7,7 @@ import {
   
   export function InformationProject() {
     return (
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion type="single" collapsible className="w-100 ml-5">
         <AccordionItem value="item-1">
           <AccordionTrigger className="text-2xl">Visão Geral do Projeto</AccordionTrigger>
           <AccordionContent className="text-aligh">
