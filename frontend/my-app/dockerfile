@@ -1,0 +1,23 @@
+# Usa a imagem do Node.js como base
+FROM node:18-alpine
+
+# Define o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Copia package.json e package-lock.json antes de instalar as dependências
+COPY package.json package-lock.json ./
+
+# Instala as dependências antes de copiar o código-fonte
+RUN npm install --legacy-peer-deps
+
+# Copia todo o código do projeto
+COPY . .
+
+# Compila o projeto para produção
+RUN npm run build
+
+# Expõe a porta 3000
+EXPOSE 3000
+
+# Comando para rodar a aplicação
+CMD ["npm", "start"]
