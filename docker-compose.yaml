@@ -1,12 +1,9 @@
 services:
   frontend:
-    image: my-nextjs-app:latest
     build:
-      context: ./frontend/my-app
-      dockerfile: dockerfile
+      context: ./frontend/my-app/
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - ./frontend/my-app:/app
     environment:
       - NODE_ENV=production
